@@ -1,0 +1,17 @@
+1.写文章   23
+2.发布文章 11
+3.写tdk2个
+4.搜狗关键词
+
+
+http://m.5isanalyn.com
+         [e:loop={"SELECT * FROM [!db.pre!]ecms_news_data_1 WHERE id='$navinfor[id]'",1,24,0}]
+                    <?=str_replace("/d/file/",$public_r['add_pclink']."/d/file/",$bqr[newstext])?>
+                        [/e:loop]
+
+
+http://www.5isanalyn.com
+
+       [e:loop={"SELECT id,newstext FROM phome_ecms_news_data_1 WHERE id=$navinfor[id]",1,24,0}]
+        <?=str_replace("/d/file/","http://www.5isanalyn.com/d/file/",$bqr[newstext])?>
+       [/e:loop]
