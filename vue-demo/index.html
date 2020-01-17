@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue练习</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }},{{name}}
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                name: "大宇",
+            },
+            created:function(){
+                console.log('我是：'+this.$data.name);
+            }
+        })
+        console.log(app.$el,app.$data);
+
+    </script>
+</body>
+
+</html>
