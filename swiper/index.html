@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper.css">
+    <script src="js/swiper.js"></script>
+    <style>
+        #swiper1 {
+            width: 500px;
+            height: 313px;
+        }
+
+        .pagination{
+            background: yellow;
+            color: red;
+        }
+        .swiper-pagination-bullet-active{
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="images/02.jpg" alt="第一个图片">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/03.jpg" alt="第二个图片">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/04.jpg" alt="第三个图片">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <!--分页器。如果放置在swiper-container外面，需要自定义样式。-->
+    </div>
+
+    <!-- <script src="js/swiper.js"></script> -->
+    
+<script>
+    var Swiper = require('swiper');  
+        new Swiper('#swiper1', {
+            initialSlide: 0,       //默认显示第一张图
+            // direction: 'vertical', //垂直滚动，默认左右
+            speed: 1000,           //速度
+            grabCursor: true,      //true小手
+            loop: true,            //循环
+            autoplay: {
+                delay: 1000,
+            },        //自动切换,默认3秒
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>
