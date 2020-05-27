@@ -5,25 +5,37 @@
     <meta charset="UTF-8">
     <title>Vue练习</title>
     <script src="vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        {{ message }},{{name}}
-    </div>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'Hello Vue!',
-                name: "大宇",
-            },
-            created:function(){
-                console.log('我是：'+this.$data.name);
-            }
-        })
-        console.log(app.$el,app.$data);
+    <ol id="app">
+        <!-- <todo-item></todo-item>
+        <todo-item></todo-item>
+        <todo-item></todo-item> -->
+        <a href="http://baidu.com" v-on:click.prevent.once='bla'>baidu</a>
 
+    </ol>
+    <div id="myDiv"></div>
+    <button onclick="loadXMLDoc()">按钮</button>
+
+    <script src="vue.js"></script>
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "/gfz.html?t="+Math.random(), true);
+            xmlhttp.send();
+        }
+      var time= new Date()
     </script>
 </body>
 
