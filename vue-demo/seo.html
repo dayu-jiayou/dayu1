@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数据删选-大宇</title>
+    <style>
+    *{padding:0;margin:0}
+    ul>li{list-style:none}
+    .box{width:1080px;height:800px;margin:0 auto;text-align:center}
+    .boxL{border:5px solid #00f;float:left;width:60%}
+    .boxR{border:5px solid #000;float:right;width:24%}
+    .boxPublic{height:65%;padding:10px;border-radius:50px;resize:none;font-size:12px}
+    #btnBox{display:inline-block;clear:both;width:100px;height:50px;margin-top:30%}
+    .btn{margin:10px}
+    #result{width:100%;height:34%;resize:none;border:5px solid red;border-radius:20px;padding:5px;font-size:12px}
+    ul>li:nth-child(1){font-size:20px;color:red}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>说明</li>
+            <li>1.蓝色框为需要需要删选的数据</li>
+            <li>2.黑色的为删选条件</li>
+            <li>3.红色的为结果</li>
+        </ul>
+        <textarea class="boxL boxPublic "></textarea>
+        <div id="btnBox">
+            <button id="btn1" class="btn" onclick='start()'>删选数据</button>
+            <button id="btn2" class="btn" onclick='copyUrl2()'>复制结果</button>
+            <button id="btn3" class="btn" onclick='btn3()'>全部清空</button>
+        </div>
+        <textarea class="boxR boxPublic "></textarea>
+        <textarea id="result"></textarea>
+    </div>
+    <script>
+        let Btn1 = document.getElementById('btn1');
+        let Btn2 = document.getElementById('btn2');
+        let Btn3 = document.getElementById('btn3');
+        let Result = document.getElementById('result');
+        let Reg = new RegExp('(http|https):\\/\\/([\\w.]+\\/?)\\S*', 'g')
+        function start() {      //执行数据筛选
+            let result = '';
+            let result2 = '';   //左边框删选出url地址字符串
+            let BoxL = document.getElementsByClassName('boxL')[0];
+            let BoxR = document.getElementsByClassName('boxR')[0];
+            let BoxLValue1 = BoxL.value.replace(/\s*\n+/g,'\n').replace(/^\n/g,'').replace(/^[\u4e00-\u9fa5\s]*$\n?/mg,'').split('\n');//左边输入框数据转成数组，用来获取次数，exec方法执行多少次,也是用来最后输出的结果             
+            for (let index = 0; index < BoxLValue1.length; index++) {  
+                BoxLValue1[index]==''? null:result2 += Reg.exec(BoxL.value)[0]+'\n';
+            };
+            let BoxLValue=result2.split('\n');  //左边的删选出来的url转成数组
+            let BoxRValue = BoxR.value.split('\n')//右边输入框转成数组
+            for (let a = 0; a < BoxRValue.length; a++) {
+                let elementR = BoxRValue[a];
+                for (let p = 0; p < BoxLValue.length; p++) {
+                    if (BoxLValue[p]) {  //判断左边的框是否为空
+                        let elementL = BoxLValue[p];
+                        elementL == elementR ? result += a + 1 + '\t' + BoxRValue[a] + '\t' + BoxLValue1[p] + '\n' : null;
+                    }
+                }
+            }            
+            Result.value = result;
+            Reg.lastIndex=0;
+        }
+        function btn3() {   //清空数据
+            document.getElementsByClassName('boxL')[0].value = null;
+            document.getElementsByClassName('boxR')[0].value = null;
+            Result.value = null;
+        }
+        function copyUrl2() {               //一键复制结果
+            Result.select();                // 选择对象
+            document.execCommand("Copy");   // 执行浏览器复制命令
+            alert('复制成功');
+        }        
+    </script>
+</body>
+
+</html>
