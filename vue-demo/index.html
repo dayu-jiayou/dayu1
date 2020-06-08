@@ -6,6 +6,7 @@
     <title>Vue练习</title>
     <script src="vue.js"></script>
     <style>
+<<<<<<< HEAD
         .xiao {
             line-height: 50px;
             background: yellow;
@@ -18,11 +19,16 @@
 
         .nav>li:nth-of-type(3) {
             color: red;
+=======
+        [v-cloak] {
+            display: none;
+>>>>>>> 79b334f6fd0ccab681a126464947eda2d8188d6f
         }
     </style>
 </head>
 
 <body>
+<<<<<<< HEAD
     <div id="app">
         <h3 v-if='tog'>你好</h3>
         <label>id:
@@ -177,6 +183,31 @@
         //     }
         // }
         // sogou('家庭医生在线')
+=======
+    <ol id="app">
+        <!-- <todo-item></todo-item>
+        <todo-item></todo-item>
+        <todo-item></todo-item> -->
+        <a href="http://baidu.com" v-on:click.prevent.once='bla'>baidu</a>
+
+    </ol>
+    <div id="myDiv"></div>
+    <button onclick="loadXMLDoc()">按钮</button>
+
+    <script src="vue.js"></script>
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "/gfz.html?t="+Math.random(), true);
+            xmlhttp.send();
+        }
+      var time= new Date()
+>>>>>>> 79b334f6fd0ccab681a126464947eda2d8188d6f
     </script>
 </body>
 
