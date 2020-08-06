@@ -1,0 +1,25 @@
+    {
+      "name": "dayu",
+      "version": "1.0",
+      "manifest_version": 2,
+      "description": "一日三餐没烦恼，就吃老八秘制小汉堡",
+      "icons": {
+        "128": "img/3hamburger-03.png"
+       
+      },
+      "permissions": [
+        "http://www.tgoodesign.cn/"
+      ],
+     
+      "background": {
+        "page": "index.html"
+    },
+     
+      "browser_action": {
+        "default_icon": "img/Free-Converter.com-bigbang-64823206.png",
+    
+        "default_title": "干了，兄弟们,奥利给!!!",
+        "default_popup": "index.html"
+      }
+
+    }

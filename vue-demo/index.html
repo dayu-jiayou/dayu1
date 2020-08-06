@@ -6,13 +6,184 @@
     <title>Vue练习</title>
     <script src="vue.js"></script>
     <style>
+<<<<<<< HEAD
+        .xiao {
+            line-height: 50px;
+            background: yellow;
+        }
+
+        .da {
+            font-size: 26px;
+            color: red;
+        }
+
+        .nav>li:nth-of-type(3) {
+            color: red;
+=======
         [v-cloak] {
             display: none;
+>>>>>>> 79b334f6fd0ccab681a126464947eda2d8188d6f
         }
     </style>
 </head>
 
 <body>
+<<<<<<< HEAD
+    <div id="app">
+        <h3 v-if='tog'>你好</h3>
+        <label>id:
+            <input type="text" v-model="id">
+        </label>
+        <label>name:
+            <input type="text" v-model="name" @keyup.enter='add'>
+        </label>
+        <input type="button" value="添加" onclick="dayu">
+
+        <p v-for='item in list' :key='item.id'>
+            <input type="checkbox">{{item.id}}---{{item.name}}
+        </p>
+
+        <div>{{ meg | dataFormat}} </div>
+        <ul class="nav">
+            <li class="1">01</li>
+            <li class="2">02</li>
+            <span class="3">03</span>
+            <li class="4">04</li>
+        </ul>
+        <div id="box">
+            <p class="box8"></p>
+        </div>
+ "background": {
+        "page": "index.html"
+       
+      },
+    </div>
+    <button id="btn1" onclick="log1()">点我</button>
+    <script>
+
+        // var toggle = true;
+        // // var Btn1 = document.getElementById('btn1');
+        // function log1() {            
+        //     if (toggle) {
+        //         toggle = false;
+        //         console.log(1);
+        //       let a= setInterval(function(){
+        //             toggle=true;
+        //             clearInterval(a);
+        //         },1000);
+
+        //     }
+        // }
+        let arr = [3, 10, 12, 13, 15];
+        let result = arr.filter(item => item % 3 == 0)
+        console.log(result)   //[3, 12, 15]
+
+
+
+        // var list = document.querySelectorAll('.nav>li');
+        // console.log(list);
+
+        // // object = {
+        // //     0: 'zero',
+        // //     1: 'one',
+        // //     2: 'two',
+        // // }
+        // let element=null;
+        // for (const key in list) {
+        //     if (list.hasOwnProperty(key)) {
+        //         element += ','+list[key];
+        //     }
+        // }
+        // console.log(element);
+
+
+        // ['大宇','11岁','男'].forEach((element,py,py2,py3) => {
+        //     console.log(element,py,py2,py3);
+
+        // });
+        // var obj = {
+        //     name: '春亮',
+        //     age: 52,
+        //     friends: '王鹏，志刚',
+        //     1: 20,
+        //     2: 149,
+        //     3: 140,
+        // }
+        // var a = null;
+        // for (p in obj) {
+        //     console.log(obj[p])
+        //     a++;
+        // }
+        // console.log(a)
+
+
+
+
+
+        // for (const item in ["zero", "one", "two"]) {
+        //     console.log(["zero", "one", "two"][item]);//zero one two
+        // }
+        // for (const item of ["zero", "one", "two"]) {
+        //     console.log(item);//zero one two
+        // }
+
+
+
+        // var ary = [1, 5, 4, 5, 4, 5];
+        // var ary2 = Array.from(ary);
+        // console.log(ary, ary2, 0 === false);
+
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                id: '数字',
+                name: '名字',
+                tog: 'true',
+                meg: '我是一条蛇，蛇好吃么，蛇很好吃吧？应该蛇是好吃的。',
+                list: [
+                    { id: 1, name: '大宇1号' },
+                    { id: 2, name: '大宇2号' },
+                    { id: 3, name: '大宇3号' },
+                    { id: 4, name: '大宇4号' }
+                ]
+            },
+            methods: {
+                add() {
+                    this.list.unshift({ id: this.id, name: this.name })
+                },
+                toggle() {
+                    this.tog = !this.tog
+                }
+            },
+            filters: {
+                dataFormat(meg) {
+                    return meg.replace("我", "你")
+                }
+            }
+        })
+
+
+        // function sogou(params) {
+        //     let p = document.querySelectorAll('.citeurl>span');
+        //     let d = null;
+        //     // for (const a of p) {
+
+        //     // }
+        //     for (const key in p) {
+        //         if (p.hasOwnProperty(key)) {
+        //             p[key].className == 'cite-date ' ? delete p[key] : d += ',' + p[key].innerText
+        //         }
+        //     }
+        //     let ary = d.split(',');
+        //     console.log(ary);
+
+        //     for (let index = 0; index < ary.length; index++) {
+        //         ary[index] == params ? console.log(index + 1) : null;
+        //     }
+        // }
+        // sogou('家庭医生在线')
+=======
     <ol id="app">
         <!-- <todo-item></todo-item>
         <todo-item></todo-item>
@@ -36,6 +207,7 @@
             xmlhttp.send();
         }
       var time= new Date()
+>>>>>>> 79b334f6fd0ccab681a126464947eda2d8188d6f
     </script>
 </body>
 
